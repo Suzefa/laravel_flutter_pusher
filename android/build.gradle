@@ -1,15 +1,22 @@
-group = "com.github.olubunmitosin.laravel_flutter_pusher"
-version = "1.0-SNAPSHOT"
+group "com.github.olubunmitosin.laravel_flutter_pusher"
+version  "1.0-SNAPSHOT"
 
-buildscript {
-    ext.kotlin_version = '1.9.21'
+// buildscript {
+//     ext.kotlin_version = '1.9.21'
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:8.7.0'
+//         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//     }
+// }
+
+rootProject.allprojects {
     repositories {
-        google()
         mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        google()
     }
 }
 
@@ -18,13 +25,15 @@ apply plugin: 'kotlin-android'
 
 android {
 
-    namespace = "com.github.olubunmitosin.laravel_flutter_pusher"
-    compileSdkVersion = 35
+    if (project.android.hasProperty("namespace")) {
+        namespace "com.github.olubunmitosin.laravel_flutter_pusher"
+    }
+    compileSdkVersion 35
 
     defaultConfig {
-        minSdkVersion = 21
-        targetSdkVersion = 34
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion  21
+        targetSdkVersion  34
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -45,13 +54,13 @@ android {
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
-}
+// repositories {
+//     google()
+//     mavenCentral()
+// }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'com.pusher:pusher-java-client:2.0.2'
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'org.slf4j:slf4j-api:1.7.30'
