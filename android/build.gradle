@@ -18,7 +18,7 @@ apply plugin: 'kotlin-android'
 
 android {
 
-    namespace "net.jonhanson.flutter_native_splash"
+    namespace 'com.github.olubunmitosin.laravel_flutter_pusher'
     compileSdkVersion 35
 
     defaultConfig {
